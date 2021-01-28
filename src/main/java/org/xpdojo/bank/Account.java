@@ -14,4 +14,8 @@ public class Account {
     public boolean hasBalance(int balance) {
         return this.balance == balance;
     }
+
+    public void deposit(int depositAmount) {
+        balance += depositAmount;
+    }
 }

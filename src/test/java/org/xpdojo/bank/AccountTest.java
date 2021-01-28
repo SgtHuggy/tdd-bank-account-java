@@ -14,6 +14,16 @@ public class AccountTest {
         assertThat(account.hasBalance(openingBalance)).isTrue();
     }
 
+    @Test
+    public void canDepositAnAmount() {
+        final int openingBalance = 10;
+        final int depositAmount = 20;
 
+        final Account account = Account.withBalance(openingBalance);
+
+        account.deposit(depositAmount);
+
+        assertThat(account.hasBalance(openingBalance + depositAmount)).isTrue();
+    }
 
 }
