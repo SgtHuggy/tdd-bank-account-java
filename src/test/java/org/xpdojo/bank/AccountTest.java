@@ -20,10 +20,21 @@ public class AccountTest {
         final int depositAmount = 20;
 
         final Account account = Account.withBalance(openingBalance);
-
         account.deposit(depositAmount);
 
         assertThat(account.hasBalance(openingBalance + depositAmount)).isTrue();
+    }
+
+    @Test
+    public void canGetAReportOfActivity() {
+        final int openingBalance = 10;
+        final int depositAmount = 20;
+
+        final Account account = Account.withBalance(openingBalance);
+        account.deposit(depositAmount);
+
+        final String actual = account.reportActivity();
+        assertThat(actual).contains("10", "20");
     }
 
 }
